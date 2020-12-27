@@ -8,8 +8,10 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    margin-top: 1em;
 }
 #passwordField, #passwordOutput {
+    margin-top: 1em;
     padding: 1rem;
     width: 80%;
     background-color: rgb(243, 234, 234);
