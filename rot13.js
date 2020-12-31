@@ -1,17 +1,20 @@
 const inputField = document.querySelector('#passwordField');
 const outputField = document.querySelector('#passwordOutput');
+const rot13RotationValue = 13;
+const lowerCaseLowerLimit = 97, lowerCaseUpperLimit = 122, 
+    upperCaseUpperLimit = 90, upperCaseLowerLimit = 65;
 
 function rotateAlphabet(character, characterCase){
     let characterCode = character.charCodeAt(0);
     if(characterCase === 'lowerCase'){
-        characterCode += 13;
-        if(characterCode > 122){
-            characterCode = characterCode - 122 + 97 - 1;
+        characterCode += rot13RotationValue;
+        if(characterCode > lowerCaseUpperLimit){
+            characterCode = characterCode - lowerCaseUpperLimit + lowerCaseLowerLimit; - 1;
         }
     }else if(characterCase === 'upperCase'){
-        characterCode += 13;
-        if(characterCode > 90){
-            characterCode = characterCode - 90 + 65 - 1;
+        characterCode += rot13RotationValue;
+        if(characterCode > upperCaseUpperLimit){
+            characterCode = characterCode - upperCaseUpperLimit + upperCaseLowerLimit - 1;
         }
     }else{
         return character;
@@ -20,11 +23,11 @@ function rotateAlphabet(character, characterCase){
 }
 
 function isUppercaseAlphabet(characterValue){
-    return characterValue >= 65 && characterValue <= 90;
+    return characterValue >= upperCaseLowerLimit && characterValue <= upperCaseUpperLimit;
 }
 
 function isLowercaseAlphabet(characterValue){
-    return characterValue >= 97 && characterValue <= 122;
+    return characterValue >= lowerCaseLowerLimit && characterValue <= lowerCaseUpperLimit;
 }
 function isAlphabet(character) {
     let characterValue = character.charCodeAt(0);
@@ -42,6 +45,8 @@ function rot13Alphabet(character) {
 }
 
 function rot13(textInput){
+    if(textInput == null) return;
+
     let finalResult = '';
     for(let character of String(textInput)){
         finalResult += rot13Alphabet(character);
@@ -57,7 +62,3 @@ inputField.addEventListener('input', () => {
         outputField.textContent = `Encrypted Password : ${rot13(inputField.value)}`;
     }
 });
-
-// outputField.addEventListener('change', () => {
-//     outputField.innerHTML = rot13(outputField.value);
-// });
