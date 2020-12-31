@@ -1,7 +1,7 @@
 const inputField = document.querySelector('#passwordField');
 const outputField = document.querySelector('#passwordOutput');
 const rot13RotationValue = 13;
-const lowerCaseLowerLimit = 97, lowerCaseUpperLimit = 122, 
+const lowerCaseLowerLimit = 97, lowerCaseUpperLimit = 122,                  
     upperCaseUpperLimit = 90, upperCaseLowerLimit = 65;
 
 function rotateAlphabet(character, characterCase){
@@ -23,11 +23,13 @@ function rotateAlphabet(character, characterCase){
 }
 
 function isUppercaseAlphabet(characterValue){
-    return characterValue >= upperCaseLowerLimit && characterValue <= upperCaseUpperLimit;
+    return characterValue >= upperCaseLowerLimit &&
+           characterValue <= upperCaseUpperLimit;
 }
 
 function isLowercaseAlphabet(characterValue){
-    return characterValue >= lowerCaseLowerLimit && characterValue <= lowerCaseUpperLimit;
+    return characterValue >= lowerCaseLowerLimit &&
+           characterValue <= lowerCaseUpperLimit;
 }
 function isAlphabet(character) {
     let characterValue = character.charCodeAt(0);
@@ -59,6 +61,7 @@ inputField.addEventListener('input', () => {
         outputField.classList.add('remove');
     }else{
         outputField.classList.remove('remove');
-        outputField.textContent = `Encrypted Password : ${rot13(inputField.value)}`;
+        outputField.textContent = `Encrypted Password : 
+                                   ${rot13(inputField.value)}`;
     }
 });
