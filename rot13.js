@@ -9,12 +9,12 @@ function rotateAlphabet(character, characterCase){
     if(characterCase === 'lowerCase'){
         characterCode += rot13RotationValue;
         if(characterCode > lowerCaseUpperLimit){
-            characterCode = characterCode - lowerCaseUpperLimit + lowerCaseLowerLimit; - 1;
+            characterCode -= lowerCaseUpperLimit + lowerCaseLowerLimit; - 1;
         }
     }else if(characterCase === 'upperCase'){
         characterCode += rot13RotationValue;
         if(characterCode > upperCaseUpperLimit){
-            characterCode = characterCode - upperCaseUpperLimit + upperCaseLowerLimit - 1;
+            characterCode -= upperCaseUpperLimit + upperCaseLowerLimit - 1;
         }
     }else{
         return character;
