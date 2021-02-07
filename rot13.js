@@ -3,19 +3,21 @@ const outputField = document.querySelector('#passwordOutput');
 
 const rot13RotationValue = 13;
 const lowerCaseLowerLimit = 97, lowerCaseUpperLimit = 122,                  
-      upperCaseUpperLimit = 90, upperCaseLowerLimit = 65;
+      upperCaseLowerLimit = 65, upperCaseUpperLimit = 90;
 
 function rotateAlphabet(character, characterCase){
     let characterCode = character.charCodeAt(0);
     if(characterCase === 'lowerCase'){
         characterCode += rot13RotationValue;
         if(characterCode > lowerCaseUpperLimit){
-            characterCode -= lowerCaseUpperLimit + lowerCaseLowerLimit - 1;
+            characterCode -= lowerCaseUpperLimit;
+            characterCode += lowerCaseLowerLimit - 1;
         }
     }else if(characterCase === 'upperCase'){
         characterCode += rot13RotationValue;
         if(characterCode > upperCaseUpperLimit){
-            characterCode -= upperCaseUpperLimit + upperCaseLowerLimit - 1;
+            characterCode -= upperCaseUpperLimit 
+            characterCode += upperCaseLowerLimit - 1;
         }
     }else{
         return character;
